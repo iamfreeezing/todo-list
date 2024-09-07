@@ -19,7 +19,6 @@ function App() {
 
   return (
     <main>
-    <h1>todolist</h1>
     <Todoinput todos = {todos} setTodos = {setTodos} fetchData = {fetchData}/>
     <Todolist todos = {todos} setTodos = {setTodos} fetchData = {fetchData}/>
     </main>

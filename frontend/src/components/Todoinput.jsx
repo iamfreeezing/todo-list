@@ -18,10 +18,11 @@ export default function Todoinput({todos, setTodos, fetchData}) {
     }
 
   return (
-    <form>
+    <form className = "main-form">
             <input type = "text" value = {inp} onChange = {(e) => setInp(e.target.value)}></input>
             <button onClick={async (e) =>  {
                 e.preventDefault();
+                setInp('')
                 await addData(inp);
                 fetchData();
             }}>Add</button>
