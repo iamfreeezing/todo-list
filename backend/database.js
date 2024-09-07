@@ -12,8 +12,8 @@ const pool = await mysql.createPool({
 export async function getData() {
 
     const data = await pool.execute(`SELECT * FROM list`)
+    console.log(data[0])
     return data[0];
-
 }
 
 export async function addData(content) {
@@ -23,6 +23,5 @@ export async function addData(content) {
         VALUES(?)`, [content])
 
 }
-const adding = await addData('meet vaish on monday');
+
 const data = await getData();
-console.log(data)
