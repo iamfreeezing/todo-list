@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import Todolist from './components/TodoList.jsx'
+import Todoinput from './components/Todoinput.jsx';
 
 function App() {
 
@@ -7,10 +8,20 @@ function App() {
 
   const [todos, setTodos] = useState([])
 
+
+  const fetchData = async () => {
+
+      const res = await fetch('http://localhost:4002/api');
+      const arr = await res.json();
+      setTodos(arr);
+      console.log(arr)
+  }
+
   return (
     <main>
     <h1>todolist</h1>
-    <Todolist todos = {todos} setTodos = {setTodos}/>
+    <Todoinput todos = {todos} setTodos = {setTodos} fetchData = {fetchData}/>
+    <Todolist todos = {todos} setTodos = {setTodos} fetchData = {fetchData}/>
     </main>
   )
 }

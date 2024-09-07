@@ -1,16 +1,9 @@
 import React from 'react'
 import { useEffect } from 'react'
 
-function TodoList({todos, setTodos}) {
+function TodoList({todos, setTodos, fetchData}) {
 
     useEffect(() => {
-        const fetchData = async () => {
-
-            const res = await fetch('http://localhost:4002/api');
-            const arr = await res.json();
-            setTodos(arr);
-            console.log(arr)
-        }
 
         fetchData();
 
